@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Player Statistics</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f2f2;
+        }
+
+        header {
+            background: #075e2b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .search {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        input {
+            padding: 12px;
+            width: 250px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #075e2b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0a7d3b;
+        }
+
+        .players {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px #ccc;
+        }
+
+        .card h2 {
+            color: #075e2b;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            margin: 8px;
+        }
+
+        footer {
+            background: #075e2b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .players {
+                grid-template-columns: 1fr;
+            }
+
+            input {
+                width: 70%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏏 Cricket Player Statistics</h1>
+    <p>View Player Performance</p>
+</header>
+
+<div class="container">
+
+    <div class="search">
+        <input type="text" id="searchBox" placeholder="Search player">
+        <button onclick="searchPlayer()">Search</button>
+    </div>
+
+    <div class="players" id="playerList">
+
+        <div class="card">
+            <h2>Virat Kohli</h2>
+            <p><b>Matches:</b> 292</p>
+            <p><b>Runs:</b> 13,906</p>
+            <p><b>Average:</b> 58.18</p>
+            <p><b>Centuries:</b> 51</p>
+            <p><b>Strike Rate:</b> 93.54</p>
+        </div>
+
+        <div class="card">
+            <h2>Rohit Sharma</h2>
+            <p><b>Matches:</b> 273</p>
+            <p><b>Runs:</b> 11,577</p>
+            <p><b>Average:</b> 48.96</p>
+            <p><b>Centuries:</b> 32</p>
+            <p><b>Strike Rate:</b> 92.83</p>
+        </div>
+
+        <div class="card">
+            <h2>Jasprit Bumrah</h2>
+            <p><b>Matches:</b> 89</p>
+            <p><b>Wickets:</b> 149</p>
+            <p><b>Average:</b> 22.65</p>
+            <p><b>Economy:</b> 4.60</p>
+            <p><b>Best:</b> 6/19</p>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Cricket Statistics App</p>
+</footer>
+
+<script>
+    function searchPlayer() {
+
+        let search = document.getElementById("searchBox")
+            .value.toLowerCase();
+
+        let cards = document.querySelectorAll(".card");
+
+        cards.forEach(function(card) {
+
+            let name = card.querySelector("h2")
+                .textContent.toLowerCase();
+
+            if (name.includes(search)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+    }
+</script>
+
+</body>
+</html>
